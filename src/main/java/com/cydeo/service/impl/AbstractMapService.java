@@ -1,5 +1,7 @@
 package com.cydeo.service.impl;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +26,10 @@ public abstract class AbstractMapService<T,ID> {
 
     void deleteById(ID id) {
         map.remove(id);
+    }
+
+    void update(ID id,T object) {
+        map.put(id,object);
     }
 
 }
