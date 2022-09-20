@@ -33,6 +33,7 @@ public class ProjectController {
     public String insertProject(ProjectDTO project){
 
         projectService.save(project);
+
         return "redirect:/project/create";
     }
 
