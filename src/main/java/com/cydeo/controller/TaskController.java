@@ -1,5 +1,6 @@
 package com.cydeo.controller;
 
+import com.cydeo.dto.TaskDTO;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.service.ProjectService;
 import com.cydeo.service.TaskService;
@@ -26,7 +27,10 @@ public class TaskController {
     @GetMapping("/create")
     public String createTask(Model model) {
 
-
+        model.addAttribute("task", new TaskDTO());
+        model.addAttribute("projects", projectService.findAll());
+        model.addAttribute("employees", userService.findEmployees());
+        model.addAttribute("tasks", taskService.findAll());
 
         return "task/create";
     }
